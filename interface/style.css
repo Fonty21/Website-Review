@@ -1,6 +1,12 @@
 body{
     margin: 0px;
 }
+#placeholder{
+    margin-left: 15px;
+    margin-top: 15px;
+    height: 25px;
+    width: 180px;
+}
 
 .Title{
     background-color: black;
@@ -11,10 +17,23 @@ body{
     line-height: 100px;
     text-align: center;
 }
+.ImageBox{
+    background-color: red;
+    height: 300px;
+    width: 100%;
+    margin-top: 5px;
+}
 .GameReview{
-    background-color: black;
+    background-color: yellow;
     color: white;
     margin-top: 5px;
     height: 1000px;
     width: 100%;
+}
+.CommentBox{
+    background-color: blue;
+    color: white;
+    height: 300px;
+    width: 100%;
+    margin-top: 5px;
 }
