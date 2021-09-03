@@ -1,7 +1,14 @@
 body{
     margin: 0px;
 }
-#placeholder{
+#placeholderFirst{
+    margin-left: 15px;
+    margin-top: 15px;
+    height: 25px;
+    width: 180px;
+    text-align: center;
+}
+#placeholderLast{
     margin-left: 15px;
     margin-top: 15px;
     height: 25px;
@@ -18,6 +25,14 @@ body{
 #submit{
     margin-left: 15px;
     margin-top: 15px;
+}
+
+#DropDown{
+    margin-left: 15px;
+    margin-top: 15px;
+    height: 25px;
+    width: 180px;
+    text-align: center;
 }
 
 .Title{
