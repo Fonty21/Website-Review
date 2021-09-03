@@ -16,9 +16,9 @@
             <div class="ImageBox"></div>
         </div>
         <div class="CommentBox">
-            <input id="placeholder" placeholder="Enter First Name">
-            <input id="placeholder" placeholder="Enter Last Name">
-            <select>
+            <input id="placeholderFirst" placeholder="Enter First Name">
+            <input id="placeholderLast" placeholder="Enter Last Name">
+            <select id="DropDown">
                 <option value="" disabled selected hidden>Star Rating</option>
                 <option value="1">1 Star</option> 
                 <option value="2">2 Stars</option>
@@ -27,8 +27,8 @@
                 <option value="5">5 Stars</option>              
             </select>
             <textarea id="reviewBox" placeholder="Enter Review"></textarea>
-            <button id="submit">Submit</button>
-            <button id="reset">Reset</button>
+            <button id="submit" onclick="submit()">Submit</button>
+            <button id="reset" onclick="reset()">Reset</button>
         </div>
     
     </div>
