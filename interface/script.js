@@ -6,5 +6,5 @@ function reset(){
 }
 
 function submit(){
-    
+    $("#submit")
 }
