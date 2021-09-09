@@ -40,12 +40,38 @@ $(document).ready(function(){
         } 
         //return result; //JavaScript object
         return JSON.stringify(result); //JSON
-      }
-
-    function search(){
-        $("searchBar")
     }
 
+    $('#searchGame').on('click',function(){
+        search();
+    })
+    $('#submit').on('click',function(){
+        submit();
+    })
+    $('#reset').on('click',function(){
+        reset();
+    })
+
+
+    function search(){
+
+        checkGame = $('#searchBar').val();
+    
+        //console.log(checkGame);
+    
+        for(var i=0;i<data.length;i++){
+            if(data[i]["Name"] == checkGame){ // data[i]["Name"] == 
+    
+                console.log(data[i]);
+    
+            }    
+    
+        }
+    
+        /*$("#searchBar").val("Game Review.csv") == true
+            $(".GameReview").append("<div></div>").children().last()*/
+    }
+    
     function reset(){
         $("#searchBar").val("").attr("placeholder", "Search Game");
         $("#placeholderFirst").val("").attr("placeholder", "First Name");
@@ -53,10 +79,10 @@ $(document).ready(function(){
         $("#DropDown").val("").attr("selected", "Star Rating");
         $("#reviewBox").val("").attr("placeholder", "Enter Review");
     }
-
+    
     function submit(){
         $("#submit")
     }
 
 
-})
+});
