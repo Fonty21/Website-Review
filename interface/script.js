@@ -54,7 +54,7 @@ $(document).ready(function(){
         reset();
     })
 
-    //enter button V
+    //Enter Button on search bar
     $("#searchBar").keypress(function(event) {
         // Number 13 is the "Enter" key on the keyboard
         if (event.keyCode === 13) {
@@ -91,11 +91,5 @@ $(document).ready(function(){
     function submit(){
         $("#submit")
     }
-
-    function keyIn(event){
-        if(event.keyCode==13){
-            search();
-        }
-    }
-
+    
 });
