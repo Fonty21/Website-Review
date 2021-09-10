@@ -16,8 +16,6 @@ $(document).ready(function(){
         }   
     })
 
-    console.log(data);
-
     function csvJSON(csv){
 
         var lines=csv.split("\n");
@@ -42,6 +40,10 @@ $(document).ready(function(){
         return JSON.stringify(result); //JSON
     }
 
+    console.log(data);
+
+
+
     $('#searchGame').on('click',function(){
         search();
     })
@@ -52,6 +54,13 @@ $(document).ready(function(){
         reset();
     })
 
+    //enter button V
+    $("#searchBar").keypress(function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            search();
+        }
+    })
 
     function search(){
 
@@ -60,16 +69,15 @@ $(document).ready(function(){
         //console.log(checkGame);
     
         for(var i=0;i<data.length;i++){
-            if(data[i]["Name"] == checkGame){ // data[i]["Name"] == 
+            if(data[i]["Name"].toLowerCase() == checkGame.toLowerCase()){
     
                 console.log(data[i]);
+
+                
     
             }    
     
         }
-    
-        /*$("#searchBar").val("Game Review.csv") == true
-            $(".GameReview").append("<div></div>").children().last()*/
     }
     
     function reset(){
@@ -84,5 +92,10 @@ $(document).ready(function(){
         $("#submit")
     }
 
+    function keyIn(event){
+        if(event.keyCode==13){
+            search();
+        }
+    }
 
 });
