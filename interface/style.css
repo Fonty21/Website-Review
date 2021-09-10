@@ -37,6 +37,7 @@ body{
 #searchBar{
     margin-left: 1020px;
     margin-top: 10px;
+    text-transform: capitalize;
 }
 
 .Title{
