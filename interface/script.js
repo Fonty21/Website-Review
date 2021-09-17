@@ -75,15 +75,16 @@ $(document).ready(function(){
 
                 console.log(data[i]['Image\r']);
 
-                $(".ImageBox").html("").append('<img src='+data[i]['Image\r']+'></img>').children().attr("src", data[i]["Image"]);                
+                $(".ImageBox").html("").append('<img src='+data[i]['Image\r']+'></img>').children().attr("src", data[i]["Image"]).css({
+                    width: "100%", height: "600px"
+                });                
                 $(".Name").html("Name:" + " " + data[i]["Name"]);
                 $(".Year").html("Year:" + " " + data[i]["Year"]);
                 $(".Console").html("Consoles:" + " " + (data[i]["Consoles"]).replaceAll("|", ","));
                 $(".Genres").html("Genre:" + " " + (data[i]["Genre"]).replaceAll("|", ","));
                 $(".Modes").html("Modes:" + " " + (data[i]["Modes"]).replaceAll("|", ","));
+                $(".InformationReview").html("Description:" + " " + data[i]["Description\r"]);
                 //$(".Rating").html("");
-                $(".InformationReview").html("Description:" + " " + data[i]["Description"]);
-
 
     
             }    
@@ -93,10 +94,13 @@ $(document).ready(function(){
     
     function reset(){
         $("#searchBar").val("").attr("placeholder", "Search Game");
-        $("#placeholderFirst").val("").attr("placeholder", "First Name");
-        $("#placeholderLast").val("").attr("placeholder", "Last Name");
+        $("#placeholderFirst").val("").attr("placeholder", "Enter First Name");
+        $("#placeholderLast").val("").attr("placeholder", "Enter Last Name");
         $("#DropDown").val("").attr("selected", "Star Rating");
         $("#reviewBox").val("").attr("placeholder", "Enter Review");
+        $(".ImageBox").html("")
+        $(".InformationReview").html("")
+        $(".GameReview").children().html("")
     }
     
     function submit(){
