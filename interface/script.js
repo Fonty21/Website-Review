@@ -73,7 +73,18 @@ $(document).ready(function(){
     
                 console.log(data[i]);
 
-                
+                console.log(data[i]['Image\r']);
+
+                $(".ImageBox").html("").append('<img src='+data[i]['Image\r']+'></img>').children().attr("src", data[i]["Image"]);                
+                $(".Name").html("Name:" + " " + data[i]["Name"]);
+                $(".Year").html("Year:" + " " + data[i]["Year"]);
+                $(".Console").html("Consoles:" + " " + (data[i]["Consoles"]).replaceAll("|", ","));
+                $(".Genres").html("Genre:" + " " + (data[i]["Genre"]).replaceAll("|", ","));
+                $(".Modes").html("Modes:" + " " + (data[i]["Modes"]).replaceAll("|", ","));
+                //$(".Rating").html("");
+                $(".InformationReview").html("Description:" + " " + data[i]["Description"]);
+
+
     
             }    
     
@@ -91,5 +102,5 @@ $(document).ready(function(){
     function submit(){
         $("#submit")
     }
-    
+
 });
