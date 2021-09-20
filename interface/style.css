@@ -65,7 +65,7 @@ body{
 .GameReview{
     background-color: black;
     color: white;
-    height: 320px;
+    height: 400px;
     width: 100%;
     float: left;
 }
@@ -90,6 +90,11 @@ body{
     float: left;
 }
 .Modes{
+    width: 100%;
+    height: 50px;
+    float: left;
+}
+.Rating{
     width: 100%;
     height: 50px;
     float: left;

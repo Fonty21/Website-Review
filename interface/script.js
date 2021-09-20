@@ -73,7 +73,7 @@ $(document).ready(function(){
     
                 console.log(data[i]);
 
-                console.log(data[i]['Image\r']);
+                //console.log(data[i]['Image\r']);
 
                 $(".ImageBox").html("").append('<img src='+data[i]['Image\r']+'></img>').children().attr("src", data[i]["Image"]).css({
                     width: "100%", height: "600px"
@@ -83,8 +83,9 @@ $(document).ready(function(){
                 $(".Console").html("Consoles:" + " " + (data[i]["Consoles"]).replaceAll("|", ","));
                 $(".Genres").html("Genre:" + " " + (data[i]["Genre"]).replaceAll("|", ","));
                 $(".Modes").html("Modes:" + " " + (data[i]["Modes"]).replaceAll("|", ","));
-                $(".InformationReview").html("Description:" + " " + data[i]["Description\r"]);
-                //$(".Rating").html("");
+                $(".Rating").html("Rating:" + " " + data[i]["Rating\r"]);
+                $(".InformationReview").html("Description:" + " " + data[i]["Description"]);
+                
 
     
             }    
