@@ -76,8 +76,7 @@ $(document).ready(function(){
                 //console.log(data[i]['Image\r']);
 
                 $(".ImageBox").html("").append('<img src='+data[i]['Image\r']+'></img>').children().attr("src", data[i]["Image"]).css({
-                    width: "100%", height: "600px"
-                });                
+                    width: "100%", height: "600px"});                
                 $(".Name").html("Name:" + " " + data[i]["Name"]);
                 $(".Year").html("Year:" + " " + data[i]["Year"]);
                 $(".Console").html("Consoles:" + " " + (data[i]["Consoles"]).replaceAll("|", ","));
@@ -85,11 +84,7 @@ $(document).ready(function(){
                 $(".Modes").html("Modes:" + " " + (data[i]["Modes"]).replaceAll("|", ","));
                 $(".Rating").html("Rating:" + " " + data[i]["Rating\r"]);
                 $(".InformationReview").html("Description:" + " " + data[i]["Description"]);
-                
-
-    
             }    
-    
         }
     }
     
