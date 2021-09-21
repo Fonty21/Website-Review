@@ -98,6 +98,22 @@ $(document).ready(function(){
         $(".InformationReview").html("")
         $(".GameReview").children().html("")
     }
+
+    // Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyD95ZBPlQLvYtzasiTAwDtfdhOnhGtk2YY",
+    authDomain: "gamepedia-8dc95.firebaseapp.com",
+    databaseURL: "https://gamepedia-8dc95-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "gamepedia-8dc95",
+    storageBucket: "gamepedia-8dc95.appspot.com",
+    messagingSenderId: "697468970696",
+    appId: "1:697468970696:web:6347b040b60efd1c9927fd"
+  };
+  
+  // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  
+    var database = firebase.database();
     
     function submit(){
         $("#submit")
