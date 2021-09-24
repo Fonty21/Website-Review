@@ -3,6 +3,8 @@ $(document).ready(function(){
 
     var data;
 
+    var reviewData;
+
 
     $.ajax({
 
@@ -42,7 +44,41 @@ $(document).ready(function(){
 
     console.log(data);
 
+    const firebaseConfig = {
+        apiKey: "AIzaSyD95ZBPlQLvYtzasiTAwDtfdhOnhGtk2YY",
+        authDomain: "gamepedia-8dc95.firebaseapp.com",
+        databaseURL: "https://gamepedia-8dc95-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "gamepedia-8dc95",
+        storageBucket: "gamepedia-8dc95.appspot.com",
+        messagingSenderId: "697468970696",
+        appId: "1:697468970696:web:6347b040b60efd1c9927fd"
+      };
+      
+      // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      
+        var database = firebase.database();
+    
+        function readAllData(){
+            var getUserId = firebase.database().ref();
+    
+            getUserId.on('value', (snapshot) => {
+                reviewData = snapshot.val();
+    
+                console.log(reviewData);
+        
+            })
+        }
+        
+        delayfunction()
+        function delayfunction(){
+            readAllData();
+            setTimeout(function(){
+                 console.log
+            },6000);
+        };
 
+    //console.log(reviewData);
 
     $('#searchGame').on('click',function(){
         search();
@@ -84,8 +120,22 @@ $(document).ready(function(){
                 $(".Modes").html("Modes:" + " " + (data[i]["Modes"]).replaceAll("|", ","));
                 $(".Rating").html("Rating:" + " " + data[i]["Rating\r"]);
                 $(".InformationReview").html("Description:" + " " + data[i]["Description"]);
-            }    
+            
+            for(var j=0;j<reviewData.length;j++){
+                    if (reviewData[j]["game"].toLowerCase() == checkGame.toLowerCase()){
+                        
+                            $(".reviewContainer").append("<div></div>").children().last().html("First Name:" + " " + reviewData[j]["firstName"]);
+                            $(".reviewContainer").append("<div></div>").children().last().html("Last Name:" + " " + reviewData[j]["lastName"]);
+                            $(".reviewContainer").append("<div></div>").children().last().html("Star Rating:" + " " + reviewData[j]["StarRating"]);
+                            $(".reviewContainer").append("<div></div>").children().last().html("Game:" + " " + reviewData[j]["game"]);
+                            $(".reviewContainer").append("<div></div>").children().last().html("Review:" + " " + reviewData[j]["review"]);
+                    }
+                }
+            }   
         }
+
+        //if there is any reviews from firebase, display
+        
     }
     
     function reset(){
@@ -99,21 +149,17 @@ $(document).ready(function(){
         $(".GameReview").children().html("")
     }
 
-    // Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyD95ZBPlQLvYtzasiTAwDtfdhOnhGtk2YY",
-    authDomain: "gamepedia-8dc95.firebaseapp.com",
-    databaseURL: "https://gamepedia-8dc95-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "gamepedia-8dc95",
-    storageBucket: "gamepedia-8dc95.appspot.com",
-    messagingSenderId: "697468970696",
-    appId: "1:697468970696:web:6347b040b60efd1c9927fd"
-  };
-  
-  // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  
-    var database = firebase.database();
+
+    
+    //input on Friday...
+    function writeSpecificData(userId, path, detail1,detail2) {
+        firebase.database().ref(path).set({
+    
+          key1:detail1,
+          key2:detail2
+    
+        });
+      }
     
     function submit(){
         $("#submit")
