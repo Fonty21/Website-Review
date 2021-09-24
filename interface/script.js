@@ -120,15 +120,17 @@ $(document).ready(function(){
                 $(".Modes").html("Modes:" + " " + (data[i]["Modes"]).replaceAll("|", ","));
                 $(".Rating").html("Rating:" + " " + data[i]["Rating\r"]);
                 $(".InformationReview").html("Description:" + " " + data[i]["Description"]);
+                $(".reviewContainer").html("");
             
             for(var j=0;j<reviewData.length;j++){
                     if (reviewData[j]["game"].toLowerCase() == checkGame.toLowerCase()){
-                        
+
                             $(".reviewContainer").append("<div></div>").children().last().html("First Name:" + " " + reviewData[j]["firstName"]);
                             $(".reviewContainer").append("<div></div>").children().last().html("Last Name:" + " " + reviewData[j]["lastName"]);
                             $(".reviewContainer").append("<div></div>").children().last().html("Star Rating:" + " " + reviewData[j]["StarRating"]);
                             $(".reviewContainer").append("<div></div>").children().last().html("Game:" + " " + reviewData[j]["game"]);
                             $(".reviewContainer").append("<div></div>").children().last().html("Review:" + " " + reviewData[j]["review"]);
+                          
                     }
                 }
             }   
@@ -147,6 +149,7 @@ $(document).ready(function(){
         $(".ImageBox").html("")
         $(".InformationReview").html("")
         $(".GameReview").children().html("")
+        $(".reviewContainer").children().html("")
     }
 
 
