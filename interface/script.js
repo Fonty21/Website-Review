@@ -125,6 +125,7 @@ $(document).ready(function(){
             for(var j=0;j<reviewData.length;j++){
                     if (reviewData[j]["game"].toLowerCase() == checkGame.toLowerCase()){
 
+                            //if there is any reviews from firebase, display
                             $(".reviewContainer").append("<div></div>").children().last().html("First Name:" + " " + reviewData[j]["firstName"]);
                             $(".reviewContainer").append("<div></div>").children().last().html("Last Name:" + " " + reviewData[j]["lastName"]);
                             $(".reviewContainer").append("<div></div>").children().last().html("Star Rating:" + " " + reviewData[j]["StarRating"]);
@@ -136,7 +137,7 @@ $(document).ready(function(){
             }   
         }
 
-        //if there is any reviews from firebase, display
+        
         
     }
     
@@ -153,19 +154,38 @@ $(document).ready(function(){
     }
 
 
-    
-    //input on Friday...
-    function writeSpecificData(userId, path, detail1,detail2) {
+    function writeSpecificData(path, firstName, lastName, StarRating, game, review){
         firebase.database().ref(path).set({
     
-          key1:detail1,
-          key2:detail2
+          firstName:firstName,
+          lastName:lastName,
+          StarRating:StarRating,
+          game:game,
+          review:review
     
         });
       }
     
     function submit(){
-        $("#submit")
+            var game = $("#searchBar").val()
+                for(var i=0;i<data.length;i++){
+                    if(data[i]["Name"].toLowerCase() == game.toLowerCase()){
+                        game = data[i]["Name"]
+                    }
+                }
+
+            var firstName = $("#placeholderFirst").val()
+            firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+
+            var lastName = $("#placeholderLast").val()
+            lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
+
+            var StarRating = $("#DropDown").val()
+
+            var review = $("#reviewBox").val()
+
+            //writeSpecificData("reviewData/0", firstName, lastName, StarRating, game, review);
+            
     }
 
 });
