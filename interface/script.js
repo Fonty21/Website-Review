@@ -45,13 +45,23 @@ $(document).ready(function(){
     console.log(data);
 
     const firebaseConfig = {
-        apiKey: "AIzaSyD95ZBPlQLvYtzasiTAwDtfdhOnhGtk2YY",
+        //personal account
+        apiKey: "AIzaSyC1f8bCGJl5gFtd3wEZTO8SI0piRaQGO-c",
+        authDomain: "gamepedia-8946d.firebaseapp.com",
+        databaseURL: "https://gamepedia-8946d-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "gamepedia-8946d",
+        storageBucket: "gamepedia-8946d.appspot.com",
+        messagingSenderId: "322450768985",
+        appId: "1:322450768985:web:b02317c301c465b8ec9d48"
+
+        //school account
+        /*apiKey: "AIzaSyD95ZBPlQLvYtzasiTAwDtfdhOnhGtk2YY",
         authDomain: "gamepedia-8dc95.firebaseapp.com",
         databaseURL: "https://gamepedia-8dc95-default-rtdb.asia-southeast1.firebasedatabase.app",
         projectId: "gamepedia-8dc95",
         storageBucket: "gamepedia-8dc95.appspot.com",
         messagingSenderId: "697468970696",
-        appId: "1:697468970696:web:6347b040b60efd1c9927fd"
+        appId: "1:697468970696:web:6347b040b60efd1c9927fd"*/
       };
       
       // Initialize Firebase
@@ -81,20 +91,27 @@ $(document).ready(function(){
     //console.log(reviewData);
 
     $('#searchGame').on('click',function(){
+        if($("#searchBar").val() != ""){
         search();
+        }
     })
     $('#submit').on('click',function(){
         submit();
     })
-    $('#reset').on('click',function(){
-        reset();
+    $('#clear').on('click',function(){
+        clear();
+    })
+    $('#top').on('click',function(){
+        top();
     })
 
     //Enter Button on search bar
     $("#searchBar").keypress(function(event) {
         // Number 13 is the "Enter" key on the keyboard
         if (event.keyCode === 13) {
+            if($("#searchBar").val() != ""){
             search();
+            }
         }
     })
 
@@ -121,7 +138,9 @@ $(document).ready(function(){
                 $(".Rating").html("Rating:" + " " + data[i]["Rating\r"]);
                 $(".InformationReview").html("Description:" + " " + data[i]["Description"]);
                 $(".reviewContainer").html("");
-            
+
+                    console.log(reviewData.length)
+
             for(var j=0;j<reviewData.length;j++){
                     if (reviewData[j]["game"].toLowerCase() == checkGame.toLowerCase()){
 
@@ -131,6 +150,7 @@ $(document).ready(function(){
                             $(".reviewContainer").append("<div></div>").children().last().html("Star Rating:" + " " + reviewData[j]["StarRating"]);
                             $(".reviewContainer").append("<div></div>").children().last().html("Game:" + " " + reviewData[j]["game"]);
                             $(".reviewContainer").append("<div></div>").children().last().html("Review:" + " " + reviewData[j]["review"]);
+                            $(".reviewContainer").append("<br>")
                           
                     }
                 }
@@ -141,16 +161,16 @@ $(document).ready(function(){
         
     }
     
-    function reset(){
-        $("#searchBar").val("").attr("placeholder", "Search Game");
+    function clear(){
+        //$("#searchBar").val("").attr("placeholder", "Search Game");
         $("#placeholderFirst").val("").attr("placeholder", "Enter First Name");
         $("#placeholderLast").val("").attr("placeholder", "Enter Last Name");
         $("#DropDown").val("").attr("selected", "Star Rating");
         $("#reviewBox").val("").attr("placeholder", "Enter Review");
-        $(".ImageBox").html("")
-        $(".InformationReview").html("")
-        $(".GameReview").children().html("")
-        $(".reviewContainer").children().html("")
+        //$(".ImageBox").html("")
+        //$(".InformationReview").html("")
+        //$(".GameReview").children().html("")
+        //$(".reviewContainer").children().html("")
     }
 
 
@@ -162,7 +182,6 @@ $(document).ready(function(){
           StarRating:StarRating,
           game:game,
           review:review
-    
         });
       }
     
@@ -184,8 +203,14 @@ $(document).ready(function(){
 
             var review = $("#reviewBox").val()
 
-            //writeSpecificData("reviewData/0", firstName, lastName, StarRating, game, review);
-            
+                if($("#searchBar").val() != ""){
+                    writeSpecificData((reviewData.length), firstName, lastName, StarRating, game, review);
+                }
+
+    }
+
+    function top(){
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
 });
