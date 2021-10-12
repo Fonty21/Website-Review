@@ -76,6 +76,7 @@ body{
     width: 100%;
     margin-top: 2px;
     float: left;
+    background-color: grey;
 }
 .GameReview{
     background-color: black;
@@ -83,6 +84,7 @@ body{
     height: 400px;
     width: 100%;
     float: left;
+    margin-top: 2px;
 }
 .Name{
     width: 100%;
