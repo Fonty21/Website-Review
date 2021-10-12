@@ -14,7 +14,6 @@ $(document).ready(function(){
 
             var JSONfile = csvJSON(result);
             data = JSON.parse(JSONfile);
-
         }   
     })
 
@@ -173,7 +172,6 @@ $(document).ready(function(){
         //$(".reviewContainer").children().html("")
     }
 
-
     function writeSpecificData(path, firstName, lastName, StarRating, game, review){
         firebase.database().ref(path).set({
     
@@ -210,7 +208,6 @@ $(document).ready(function(){
     }
 
     function top(){
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        document.documentElement.scrollTop = 0;     //For Chrome, Firefox, IE and Opera
     }
-
 });
